@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
         self.statusText.text = ""
         self.statusText.textColor = .darkGray
         self.loginButton.backgroundColor = .orange.withAlphaComponent(0.4)
+        self.loginButton.layer.cornerRadius = 20
     }
     
     func bindingViewModel(){
@@ -47,6 +48,20 @@ class MainViewController: UIViewController {
             .map { ($0.object as! UITextField).text ?? "" }
             .assign(to: \.password, on: viewModel)
             .store(in: &cancellables)
+        
+        viewModel.$password
+            .sink(receiveValue: { i in
+                print(i)
+                if !i.isEmpty {
+                    self.loginButton.backgroundColor = .blue.withAlphaComponent(0.4)
+                    self.loginButton.tintColor = .white
+                } else {
+                    self.loginButton.backgroundColor = .orange.withAlphaComponent(0.4)
+                    self.loginButton.tintColor = .white.withAlphaComponent(0.4)
+                }
+            })
+            .store(in: &cancellables)
+        
         
         viewModel.isLoginEnable
             .assign(to: \.isEnabled, on: loginButton)

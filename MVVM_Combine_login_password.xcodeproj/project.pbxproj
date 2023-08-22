@@ -62,10 +62,10 @@
 		5B8BB3362A93D3A400F2DF77 /* MVVM_Combine_login_password */ = {
 			isa = PBXGroup;
 			children = (
+				5B8BB34D2A93D3CC00F2DF77 /* Model */,
 				5B8BB3542A93D8B500F2DF77 /* Extantion */,
 				5B8BB3372A93D3A400F2DF77 /* AppDelegate.swift */,
 				5B8BB3392A93D3A400F2DF77 /* SceneDelegate.swift */,
-				5B8BB34D2A93D3CC00F2DF77 /* Model */,
 				5B8BB34C2A93D3C600F2DF77 /* ViewModel */,
 				5B8BB34B2A93D3BF00F2DF77 /* View */,
 				5B8BB33D2A93D3A400F2DF77 /* Main.storyboard */,

@@ -28,7 +28,7 @@ class MainViewModel {
     
     var isFailedPasswordPublisher: AnyPublisher<Bool, Never> {
         $password
-            .map { $0.isEmail() }
+            .map { !$0.isEmpty }
             .eraseToAnyPublisher()
     }
     
@@ -44,7 +44,7 @@ class MainViewModel {
     
     func submitLogin(){
         state = .loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {[weak self] in
             guard let self = self else { return }
             if self.isCorrectLogin() {
                 self.state = .success
